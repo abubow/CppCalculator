@@ -17,12 +17,16 @@ const Input = styled.input`
     height: 10vh;
     border-radius: 10px;
     Background-color: #aaa;
+    margin-bottom: 10px;
     border: none;
+    font-size: 3rem;
 `;
 const Table = styled.table`
     width: 40vw;
     height: 10vh;
     border: 1px solid #000;
+    border-radius: 10px;
+    padding: 10px;
 `;
 const TableRow = styled.tr`
     display: flex;
