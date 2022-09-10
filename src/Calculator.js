@@ -8,7 +8,7 @@ export default class Calculator extends Component {
             equation: "",
             result: ""
         };
-        const calculatorAPI = props.calculatorAPI;
+        this.calculatorAPI = props.calculatorAPI;
     }
 
     onEquationChange(equation){
@@ -108,7 +108,7 @@ export default class Calculator extends Component {
 
     equalHandler()
     {
-        this.props.calculatorAPI.calculate(this.state.equation, (result) => {
+        this.calculatorAPI.calculate(this.state.equation, (result) => {
             this.setState({
                 result: result,
                 equation: result
