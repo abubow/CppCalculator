@@ -23,6 +23,9 @@ const Table = styled.table`
     width: 40vw;
     height: 10vh;
     border: 1px solid #000;
+    border-radius: 10px;
+    padding: 10px;
+    box-shadow: 0 0 10px #000;
 `;
 const TableRow = styled.tr`
     display: flex;
