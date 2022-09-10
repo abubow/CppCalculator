@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import { PropTypes } from "react";
 const Container = styled.div`
     display: flex;
     justify-content: center;
