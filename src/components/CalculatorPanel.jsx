@@ -1,5 +1,5 @@
 import styled from "styled-components";
-
+import { PropTypes } from "react";
 const Container = styled.div`
     display: flex;
     justify-content: center;
@@ -18,6 +18,8 @@ const Input = styled.input`
     border-radius: 10px;
     Background-color: #aaa;
     margin-bottom: 10px;
+    padding: 0px 20px;
+    text-align: right;
     border: none;
     font-size: 3rem;
 `;
@@ -63,14 +65,14 @@ const Button = styled.button`
         transform: scale(1);
     }
 `;
-const CalculatorPanel = () => {
+const CalculatorPanel = (props) => {
     //All buttons in the calculator
-    const buttons = [
-        ['C', 'DEL', '%', '/'],
-        [7, 8, 9, '*'],
-        [4, 5, 6, '-'],
-        [1, 2, 3, '+'],
-        [0, '.', '=', 'ANS']
+    const buttonsCaptions = [
+        ["C", "DEL", "%", "/"],
+        ["7", "8", "9", "*"],
+        ["4", "5", "6", "-"],
+        ["1", "2", "3", "+"],
+        ["0", ".", "ANS", "="]
     ];
 
     
@@ -82,16 +84,35 @@ const CalculatorPanel = () => {
                 <tbody>
                     <TableRow>
                         <TableData colSpan="4">
-                            <Input type="text" />
+                            <Input 
+                            type="text"
+                            placeholder="0"
+                            value={props.equation}
+                            onChange={
+                                (event) => {
+                                    props.onEquationChange(event.target.value);
+                                }
+                            }
+                            />
                         </TableData>
                     </TableRow>
-                    {buttons.map((row, index) => {
+                    {buttonsCaptions.map((row, index) => {
                         return (
                             <TableRow key={index}>
-                                {row.map((button, index) => {
+                                {row.map((buttonCaption, index) => {
                                     return (
                                         <TableData key={index}>
-                                            <Button text={button}>{button}</Button>
+                                            <Button text={buttonCaption} onClick={() => {
+                                                (!isNaN(buttonCaption)) ? props.numberClicked(buttonCaption) : 
+                                                    buttonCaption === "C" ? props.clearClicked() :
+                                                        buttonCaption === "." ? props.dotClicked() :
+                                                            buttonCaption === "=" ? props.equalClicked() :
+                                                                buttonCaption === "ANS" ? props.answerClicked() :
+                                                                    buttonCaption === "DEL" ? props.deleteClicked() :
+                                                                        props.operatorClicked(buttonCaption);
+                                            }}>
+                                                {buttonCaption}
+                                            </Button>
                                         </TableData>
                                     );
                                 })}
@@ -105,4 +126,5 @@ const CalculatorPanel = () => {
   )
 }
 
+// defining the prop types of the component
 export default CalculatorPanel
