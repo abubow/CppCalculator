@@ -6,7 +6,7 @@ import CalculatorAPI from './CalculatorAPI';
 function App() {
   return (
     <div className="App">
-      <Calculator calculatorAPI={new CalculatorAPI("http://localhost:3000")}/>
+      <Calculator calculatorAPI={new CalculatorAPI("http://0.0.0.0:18080")}/>
       <div>
         Still under development
         by <a href="https://abuzar.netlify.app">Abuzar</a>

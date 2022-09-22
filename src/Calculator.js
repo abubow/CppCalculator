@@ -108,7 +108,8 @@ export default class Calculator extends Component {
 
     equalHandler()
     {
-        this.calculatorAPI.calculate(this.state.equation, (result) => {
+        console.log(this.state.equation);
+        this.calculatorAPI.calculate(this.state.equation.replace('/', 'd'), (result) => {
             this.setState({
                 result: result,
                 equation: result

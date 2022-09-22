@@ -3,17 +3,14 @@ export default class CalculatorAPI {
     this.serviceAddress = serviceAddress;
   }
   calculate(equation, handler){
-    fetch(this.serviceAddress + '/api/Calculator?equation=' + equation)
-      .then(res => res.json())
-      .then((response) => {
-        handler(response['result']);
-      },
-        (error) => {
-            console.log("Error: Could not calculate the equation");
-            console.log(error);
-            handler("Error");
-            }
-        );
-    
+    // get the result from the server
+    // and call the handler with the result
+    fetch(this.serviceAddress + "/calc/" + equation)
+      .then(response => response.json())
+      .then((data) =>{
+        console.log(data);
+        handler(data.result.toString());
+      }
+    );
   }
 }
