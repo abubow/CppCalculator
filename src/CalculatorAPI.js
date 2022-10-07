@@ -3,7 +3,7 @@ export default class CalculatorAPI {
     this.serviceAddress = serviceAddress;
   }
   calculate(equation, handler){
-    fetch(this.serviceAddress + '/api/Calculator?equation=' + equation)
+    fetch(this.serviceAddress + '/calc/' + equation)
       .then(res => res.json())
       .then((response) => {
         handler(response['result']);
