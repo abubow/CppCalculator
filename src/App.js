@@ -7,9 +7,12 @@ function App() {
   return (
     <div className="App">
       <Calculator calculatorAPI={new CalculatorAPI("https://lm-enjoyed-arthur-reasoning.trycloudflare.com")}/>
-      <div>
+      <div style={{position: "fixed", bottom: "1%", right: "1%", color: "black", fontSize: "15px"}}>
         Still under development
-        by <a href="https://abuzar.netlify.app">Abuzar</a>
+        by 
+        <a href="https://abubow.me" style={{textDecoration: "none", color: "blue"}}>
+          {" "}Abuzar
+        </a>
       </div>
     </div>
   );

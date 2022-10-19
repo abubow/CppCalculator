@@ -2,6 +2,7 @@ import styled from "styled-components";
 const Container = styled.div`
     display: flex;
     justify-content: center;
+    align-items: center;
     box-sizing: border-box;
     width: 100%;
     height: 100vh;
@@ -18,16 +19,18 @@ const Input = styled.input`
     Background-color: #aaa;
     margin-bottom: 10px;
     padding: 0px 20px;
+    margin: 10px 0 40px 0;
     text-align: right;
     border: none;
     font-size: 3rem;
 `;
 const Table = styled.table`
     width: 40vw;
-    height: 10vh;
-    border: 1px solid #000;
     border-radius: 10px;
-    padding: 10px;
+    padding: 1rem;
+    background-color: #f2f2f2;
+    height: 70vh;
+    box-shadow: 0px 0px 30px 0px rgba(0,0,0,0.5);
 `;
 const TableRow = styled.tr`
     display: flex;
@@ -55,7 +58,7 @@ const Button = styled.button`
     transition: all 0.2s ease-in-out;
     &:hover {
         transform: scale(1.05);
-        box-shadow: rgba(0, 0, 0, 0.2) 0px 5px 15px;
+        box-shadow: rgba(0, 0, 0, 0.2) 0px 5px 25px;
     }
     &:active {
         background-color: #fff;
